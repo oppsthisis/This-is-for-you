@@ -35,6 +35,17 @@ body {
   padding: 24px;
 }
 
+/* floating hearts background */
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(transparent 60%, rgba(255,255,255,0.25)),
+    repeating-conic-gradient(from 0deg, rgba(255, 77, 184, 0.08) 0 10deg, transparent 10deg 20deg);
+  mask-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,0.2) 20%, rgba(0,0,0,0.6) 60%, rgba(0,0,0,1));
+}
+
 .card {
   width: min(680px, 92vw);
   background: var(--card-bg);
@@ -44,6 +55,7 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   text-align: center;
   position: relative;
+  z-index: 2;
 }
 
 .mascot {

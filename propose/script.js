@@ -5,6 +5,7 @@ const noButton = document.getElementById('btnNo');
 const buttonsWrap = document.getElementById('buttons');
 const successOverlay = document.getElementById('success');
 const confettiCanvas = document.getElementById('confetti-canvas');
+const heartsBg = document.getElementById('hearts');
 
 let yesScale = 1;
 let attemptsToSayNo = 0;
@@ -64,6 +65,24 @@ function positionNoRandomly(avoidOverlap = true) {
   noButton.style.top = `${y}px`;
 }
 
+// Make the No button dodge cursor proximity as well
+function dodgeWhenNear(e) {
+  const pointerX = (e.touches && e.touches[0]?.clientX) || e.clientX;
+  const pointerY = (e.touches && e.touches[0]?.clientY) || e.clientY;
+  if (pointerX == null || pointerY == null) return;
+
+  const { wrapRect } = getBounds();
+  const noRect = noButton.getBoundingClientRect();
+  const noCenterX = noRect.left + noRect.width / 2;
+  const noCenterY = noRect.top + noRect.height / 2;
+  const distance = Math.hypot(pointerX - noCenterX, pointerY - noCenterY);
+
+  if (distance < 140) {
+    positionNoRandomly(true);
+    gentlyGrowYes();
+  }
+}
+
 function gentlyGrowYes() {
   yesScale = clamp(yesScale + 0.06, 1, 1.6);
   yesButton.style.transform = `translate(-50%, -50%) scale(${yesScale})`;
@@ -85,6 +104,8 @@ function onTryNo(e) {
 noButton.addEventListener('mouseenter', onTryNo);
 noButton.addEventListener('click', onTryNo);
 noButton.addEventListener('touchstart', onTryNo, { passive: false });
+document.addEventListener('mousemove', dodgeWhenNear);
+document.addEventListener('touchmove', dodgeWhenNear, { passive: true });
 
 // Say Yes: show success and celebrate
 yesButton.addEventListener('click', () => {

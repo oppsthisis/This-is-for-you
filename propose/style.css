@@ -7,6 +7,7 @@
   --yes: #ff4db8;
   --yes-dark: #e040a3;
   --no: #7a7a7a;
+  --bg-img: url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1600&auto=format&fit=crop');
 }
 
 * { box-sizing: border-box; }
@@ -15,7 +16,9 @@ body {
   margin: 0;
   font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
   color: var(--text);
-  background: linear-gradient(135deg, var(--bg-1), var(--bg-2));
+  background:
+    linear-gradient(135deg, rgba(255, 222, 233, 0.65), rgba(181, 255, 252, 0.65)),
+    var(--bg-img) center / cover no-repeat fixed;
   overflow: hidden;
 }
 
@@ -57,6 +60,8 @@ body {
   position: relative;
   z-index: 2;
 }
+
+.mascot-svg { width: clamp(88px, 20vw, 140px); height: auto; }
 
 .mascot {
   font-size: clamp(64px, 12vw, 96px);

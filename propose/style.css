@@ -130,7 +130,7 @@ body {
   inset: 0;
   display: grid;
   place-items: center;
-  z-index: 40;
+  z-index: 100;
 }
 
 .success-inner {

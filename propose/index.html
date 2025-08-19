@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Be Mine? 💖</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <canvas id="confetti-canvas"></canvas>
+
+    <main class="page">
+      <section class="card" aria-live="polite">
+        <div class="mascot" aria-hidden="true">🥰</div>
+        <h1 class="title">Kya tum meri Valentine banogi? 💖</h1>
+        <p class="subtitle">Please say Yes! Mujhe bahut khushi hogi ✨</p>
+
+        <div class="buttons" id="buttons">
+          <button class="btn btn-yes" id="btnYes" type="button">Yes 💘</button>
+          <button class="btn btn-no" id="btnNo" type="button" aria-label="No">No 🙈</button>
+        </div>
+      </section>
+
+      <section class="success hidden" id="success">
+        <div class="success-inner">
+          <div class="mascot" aria-hidden="true">💍</div>
+          <h2 class="title">Yaaay! Tumne YES keh diya! 🎉</h2>
+          <p class="subtitle">Ab hum officially cute couple hain. Chalo celebrate karte hain! 🥳</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+  </html>
+
